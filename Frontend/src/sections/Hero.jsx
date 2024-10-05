@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import AnimatedButton from "../components/AnimatedButton";
+import AnimatedText from "../components/AnimatedText";
 
 export default function Hero() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,7 +10,8 @@ export default function Hero() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY; // Get current scroll position
 
-      // Toggle color when scrolled past 100px (adjust as necessary)
+      // Toggle color when scrolled past 100px
+
       if (scrollPosition > 100) {
         setIsScrolled(true);
       } else {
@@ -24,9 +27,7 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Black & White Full-width Squares */}
       <div className="flex w-full h-full">
-        {/* Dynamic background colors based on scroll */}
         <div
           className={`w-1/2 h-full transition-colors duration-500 ${
             isScrolled ? "bg-white" : "bg-black"
@@ -39,18 +40,15 @@ export default function Hero() {
         />
       </div>
 
-      {/* Overlay Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 space-y-4">
-        <h1 className="text-7xl font-bold text-white drop-shadow-md">
-          My Creative Hero Section
-        </h1>
-        <p className="text-xl text-gray-200 max-w-xl">
-          This is where creativity meets simplicity, balancing black and white
-          with powerful visuals.
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 space-y-8 pt-20">
+        <AnimatedText />
+        <p className="text-xl text-[#C9C9C9] max-w-xl ">
+          I&apos;m a FullStack Developer with a deep passion for backend
+          architecture and system design. I enjoy building seamless user
+          experiences, while also ensuring efficient and scalable backend
+          systems.
         </p>
-        <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition duration-300">
-          Explore More
-        </button>
+        <AnimatedButton />
       </div>
     </section>
   );
