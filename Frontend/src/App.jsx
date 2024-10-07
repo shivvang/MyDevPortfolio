@@ -7,7 +7,7 @@ import Projects from "./sections/Projects";
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col gap-2">
       <Header />
       <Hero />
       <About />

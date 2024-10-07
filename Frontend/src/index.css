@@ -2,27 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-//hero name animation
-keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+@layer components {
+  .hero-text {
+    @apply text-2xl;
+    font-size: 2rem;
+    color: transparent;
+    -webkit-text-stroke: 0.1rem #bf40bf;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    background: linear-gradient(90deg, #ffbf00, #bf40bf) no-repeat;
+    background-size: 0% 100%;
+    -webkit-background-clip: text;
+    animation: colorFill 6s ease-in-out infinite;
   }
 }
 
-.animate-zoomIn {
-  animation: zoomIn 1s ease-out;
-}
-
-keyframes spin-border {
-  0% {
-    transform: rotate(0deg);
-  }
+@keyframes colorFill {
+  0%,
   100% {
-    transform: rotate(360deg);
+    background-size: 0% 100%;
+  }
+  50% {
+    background-size: 100% 100%;
   }
 }

@@ -43,10 +43,31 @@ const SpotlightButton = () => {
   }, []);
 
   const handleButtonClick = () => {
-    window.scrollBy({
-      top: 400,
-      behavior: "smooth",
-    });
+    const startPosition = window.scrollY;
+    const targetPosition = startPosition + 600;
+    const distance = targetPosition - startPosition;
+    const duration = 1000;
+    let startTime = null;
+
+    const animation = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const elapsedTime = currentTime - startTime;
+
+      // Calculate the progress of the animation (0 to 1)
+      const progress = Math.min(elapsedTime / duration, 1);
+      // Ease out effect
+      const easeOut = 1 - Math.pow(1 - progress, 3); // Cubic easing
+
+      // Scroll by a fraction of the distance based on the easing
+      window.scrollTo(0, startPosition + distance * easeOut);
+
+      // Continue the animation if it hasn't reached the end
+      if (progress < 1) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
   };
 
   return (

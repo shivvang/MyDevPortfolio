@@ -40,9 +40,9 @@ export default function Hero() {
         />
       </div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 space-y-8 pt-20">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 space-y-8 pt-20 px-4 lg:px-0 md:pt-28 sm:pt-16">
         <AnimatedText />
-        <p className="text-xl text-[#C9C9C9] max-w-xl ">
+        <p className="hero-text text-base md:text-lg lg:text-xl xl:text-2xl max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
           I&apos;m a FullStack Developer with a deep passion for backend
           architecture and system design. I enjoy building seamless user
           experiences, while also ensuring efficient and scalable backend
