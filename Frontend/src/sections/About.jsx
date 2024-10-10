@@ -1,3 +1,5 @@
+import Skills from "../components/Skills";
+
 function About() {
   return (
     <>
@@ -40,7 +42,7 @@ function About() {
         </div>
 
         <div className="flex flex-col p-6 bg-black text-gray-200 rounded-lg">
-          <div className="text-2xl font-semibold mb-4">Skills</div>
+          <Skills />
 
           <div className="mt-6 text-2xl font-semibold">Beyond Code</div>
         </div>
