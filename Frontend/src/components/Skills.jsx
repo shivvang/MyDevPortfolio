@@ -12,6 +12,7 @@ import Html from "../assets/Html.jpg";
 import Css from "../assets/Css.jpg";
 import Javascript from "../assets/Js.png";
 import MySql from "../assets/MySql.png";
+import TailwindCss from "../assets/Tailwindcss.jpg";
 
 function Skills() {
   return (
@@ -103,6 +104,15 @@ function Cards() {
         rotate="60deg"
         top="40%"
         left="10%"
+        className="w-24 sm:w-36 md:w-56"
+      />
+      <Card
+        contiainerRef={contiainerRef}
+        src={TailwindCss}
+        alt="TailwindCss"
+        rotate="20deg"
+        top="20%"
+        left="50%"
         className="w-24 sm:w-36 md:w-56"
       />
     </div>
