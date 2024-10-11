@@ -41,7 +41,7 @@ function SlideTabs() {
           opacity: 0,
         }));
       }}
-      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
+      className="relative mx-auto flex w-fit rounded-full border-2 bg-tertiary border-secondary p-1"
     >
       <Tab setPosition={setPosition}>Home</Tab>
       <Tab setPosition={setPosition}>Project</Tab>
@@ -67,7 +67,7 @@ function Tab({ children, setPosition }) {
           left: ref.current.offsetLeft,
         });
       }}
-      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase font-bold text-black transition-all duration-300 hover:text-white md:px-5 md:py-3 md:text-base"
+      className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase font-bold font-futura text-primary transition-all duration-300 hover:text-white md:px-5 md:py-3 md:text-base"
     >
       {children}
     </li>
@@ -77,7 +77,7 @@ function Tab({ children, setPosition }) {
 function Cursor({ position }) {
   return (
     <motion.li
-      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+      className="absolute z-0 h-7 rounded-full bg-primary md:h-12"
       animate={position}
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
     />

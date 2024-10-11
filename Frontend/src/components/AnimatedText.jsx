@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 
 const AnimatedText = () => {
   return (
-    <h1 className="text-4xl text-yellow-500 sm:text-6xl md:text-7xl lg:text-8xl flex items-center gap-2">
+    <h1
+      className="text-4xl text-tertiary font-source sm:text-6xl md:text-7xl lg:text-8xl flex items-center gap-2"
+      style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5) " }}
+    >
       Hi, I&apos;m
       <FlipText name="Shivang" />
     </h1>
@@ -18,9 +21,9 @@ const FlipText = ({ name }) => {
     <motion.span
       initial="initial"
       whileHover="hovered"
-      className="relative uppercase inline-block overflow-hidden whitespace-nowrap align-bottom"
+      className="relative font-sans inline-block overflow-hidden whitespace-nowrap align-bottom"
       style={{
-        lineHeight: 0.75,
+        lineHeight: 1.2,
       }}
     >
       <div className="relative z-10 overflow-hidden">
@@ -58,7 +61,9 @@ const FlipText = ({ name }) => {
               delay: STAGGER * i,
             }}
             className="inline-block"
-            style={{ willChange: "transform" }}
+            style={{
+              willChange: "transform",
+            }}
           >
             {l}
           </motion.span>

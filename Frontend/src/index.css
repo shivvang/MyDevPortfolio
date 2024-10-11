@@ -4,16 +4,13 @@
 
 @layer components {
   .hero-text {
-    @apply text-2xl;
-    font-size: 2rem;
     color: transparent;
-    -webkit-text-stroke: 0.1rem #bf40bf;
-    line-height: 1.2;
-    white-space: pre-wrap;
-    background: linear-gradient(90deg, #ffbf00, #bf40bf) no-repeat;
+    -webkit-text-stroke: 0.1rem #7b7b7b;
+    background: linear-gradient(90deg, #ffffff, #7b7b7b) no-repeat;
     background-size: 0% 100%;
     -webkit-background-clip: text;
     animation: colorFill 6s ease-in-out infinite;
+    font-family: "Nunito", sans-serif;
   }
 }
 

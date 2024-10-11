@@ -59,7 +59,7 @@ const AboutCard = () => {
         transformStyle: "preserve-3d",
         transform,
       }}
-      className="relative min-h-screen w-full rounded-xl bg-neutral-800"
+      className="relative grid min-h-screen w-full rounded-xl bg-secondary"
     >
       <div
         style={{
