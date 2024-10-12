@@ -5,7 +5,7 @@ const AnimatedText = () => {
   return (
     <h1
       className="text-4xl text-tertiary font-source sm:text-6xl md:text-7xl lg:text-8xl flex items-center gap-2"
-      style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5) " }}
+      style={{ textShadow: "2px 2px 3px rgba(0, 0, 0, 1)" }}
     >
       Hi, I&apos;m
       <FlipText name="Shivang" />

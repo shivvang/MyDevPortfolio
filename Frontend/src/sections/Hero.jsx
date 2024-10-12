@@ -44,7 +44,7 @@ export default function Hero() {
         <AnimatedText />
         <p className="hero-text text-xl md:text-2xl lg:text-3xl xl:text-4xl  md:whitespace-nowrap max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
           <span className="text-secondary">&lt; </span>
-          Building Tomorrow&apos;s Web, One Line of Code at a Time
+          From Mechanical to Digital, I Explore It All
           <span className="text-secondary"> / &gt;</span>
         </p>
         <AnimatedButton />
