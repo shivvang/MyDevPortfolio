@@ -1,11 +1,25 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+
+const COLORS = ["#13ffaa", "#1e67c6", "#ce84cf", "#dd335c", "#222222"];
 
 const StatCard = ({ title, endValue, duration }) => {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false); // To ensure it only animates once
   const cardRef = useRef(null);
+
+  const countMotionValue = useMotionValue(0); // Motion value to track the count
+
+  // Interpolate color based on the count value using the COLORS array, ending with black
+  const color = useTransform(
+    countMotionValue,
+    Array.from(
+      { length: COLORS.length },
+      (_, i) => (endValue / COLORS.length) * i
+    ), // Divide count range into equal parts based on COLORS length
+    COLORS
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,6 +54,7 @@ const StatCard = ({ title, endValue, duration }) => {
         startValue = endValue;
         clearInterval(timer);
       }
+      countMotionValue.set(startValue); // Update the motion value for color animation
       setCount(Math.floor(startValue));
     }, 100);
   };
@@ -50,7 +65,7 @@ const StatCard = ({ title, endValue, duration }) => {
       className="p-4 bg-tertiary text-secondary rounded-lg font-source text-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1 }}
     >
       <motion.h3
         className="text-lg font-medium mb-2"
@@ -60,10 +75,11 @@ const StatCard = ({ title, endValue, duration }) => {
         {title}
       </motion.h3>
       <motion.p
-        className="text-4xl text-primary font-avenir font-bold"
+        className="text-4xl font-avenir font-bold"
         initial={{ scale: 0.5 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1 }}
+        style={{ color }} // Set the animated color here
       >
         {count}
       </motion.p>
