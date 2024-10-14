@@ -8,7 +8,18 @@ import SwipeCards from "../components/SwipeCard";
 import { useEffect } from "react";
 import StatCard from "../components/StatCard";
 
-const COLORS = ["#13ffaa", "#1e67c6", "#ce84cf", "#dd335c"];
+const COLORS = [
+  "#f0f0f0",
+  "#a3a3a3",
+  "#e8e8e8",
+  "#2f2f2f",
+  "#d1d1d1",
+  "#5a5a5a",
+  "#fbfbfb",
+  "#9c9c9c",
+  "#414141",
+  "#e3e3e3",
+];
 
 export default function About() {
   const color = useMotionValue(COLORS[0]);
@@ -39,7 +50,7 @@ export default function About() {
             backgroundImage,
           }}
         >
-          <p className="font-futura text-secondary">
+          <p className="font-futura text-secondary leading-8">
             👨‍💻 <span className="font-bold text-white">From Gears to Code:</span>{" "}
             Once a mechanical engineer, now a{" "}
             <span className="font-extrabold text-white">
