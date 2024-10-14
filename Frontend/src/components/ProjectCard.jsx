@@ -12,7 +12,7 @@ function PokemonStyleCard() {
 
       {/* Title Section */}
       <h1 className="text-3xl font-bold text-center text-gray-800 mt-4 uppercase border-b-4 border-yellow-300 pb-1">
-        Shivang is genious
+        Shivang is hot Af
       </h1>
 
       {/* Text/Abilities Section */}
