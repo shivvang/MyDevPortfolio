@@ -8,20 +8,14 @@ import SwipeCards from "../components/SwipeCard";
 import { useEffect } from "react";
 import StatCard from "../components/StatCard";
 
-const COLORS = [
-  "#f0f0f0",
-  "#a3a3a3",
-  "#e8e8e8",
-  "#2f2f2f",
-  "#d1d1d1",
-  "#5a5a5a",
-  "#fbfbfb",
-  "#9c9c9c",
-  "#414141",
-  "#e3e3e3",
-];
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const COLORS = ["#13ffaa", "#1e67c6", "#ce84cf", "#dd335c"];
 
 export default function About() {
+  const notify = () => toast("The key to discovery is just a swipe away...");
+
   const color = useMotionValue(COLORS[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #222222 50%, ${color})`;
   useEffect(() => {
@@ -85,11 +79,25 @@ export default function About() {
 
         {/* This div takes 40% width on medium and larger screens */}
         <div className="w-full md:w-2/5 bg-primary p-4">
-          <h1 className="font-source text-2xl text-white">My Skillsets</h1>
+          <h1 className="font-source text-2xl text-white" onMouseEnter={notify}>
+            My Skillsets
+          </h1>
           <div className="mt-4">
             <SwipeCards />
           </div>
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={2000} // Toast disappears after 2 seconds
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </div>
       <StatCard />
     </section>

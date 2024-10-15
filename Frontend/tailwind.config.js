@@ -10,10 +10,10 @@ export default {
         futura: ['"Futura"', "sans-serif"],
       },
       colors: {
-        primary: "#222222",
-        secondary: "#7B7B7B",
-        tertiary: "#F8F8F8",
-        white: "#FFFFFF",
+        primary: "#1A1A1A", // Royal black
+        secondary: "#565656", // Elegant darker gray
+        tertiary: "#EAEAEA", // Softer, muted off-white
+        white: "#F2F2F2", // Creamy white
       },
     },
   },
