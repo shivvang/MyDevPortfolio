@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -22,20 +23,32 @@ function AnimatedProjectSubheadingtext() {
   });
 
   return (
-    <motion.div ref={element} className="font-source text-4xl font-bold">
+    <p
+      ref={element}
+      className="font-source text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold"
+    >
       {words.map((word, index) => (
-        <motion.span
-          key={index}
-          style={{
-            opacity: opacities[index],
-          }} // Use the precomputed opacity
-          className="inline-block mr-2 text-primary"
-        >
+        <Word key={index} opacities={opacities} index={index}>
           {word}
-        </motion.span>
+        </Word>
       ))}
-    </motion.div>
+    </p>
   );
 }
 
+const Word = ({ children, opacities, index }) => {
+  return (
+    <span className="relative">
+      <span className="absolute opacity-[0.3]">{children}</span>
+      <motion.span
+        style={{
+          opacity: opacities[index],
+        }} // Use the precomputed opacity
+        className="inline-block mr-2 text-primary"
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+};
 export default AnimatedProjectSubheadingtext;

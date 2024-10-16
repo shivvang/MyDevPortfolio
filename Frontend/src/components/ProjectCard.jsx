@@ -11,18 +11,18 @@ import {
 function ProjectCard() {
   const [open, setOpen] = useState(false);
   return (
-    <div className="relative max-w-sm bg-white border-4 border-primary rounded-2xl shadow-xl p-4">
+    <div className="relative flex flex-col bg-tertiary p-4 rounded-lg shadow-xl hover:shadow-2xl border-4 border-primary transform hover:-translate-y-1 transition-all duration-300 ease-out">
       {/* Image Section */}
-      <div className="bg-gradient-to-b from-secondary to-primary  rounded-lg p-2">
+      <div className="bg-gradient-to-b from-secondary to-primary rounded-lg p-2 hover:opacity-90 transition-opacity duration-300">
         <img
           src="https://evokewellness.com/wp-content/uploads/2022/08/How-Did-Robert-Downey-Jr.-Get-Clean.jpg"
           alt="ProjectImage"
-          className="rounded-lg object-cover w-full h-40"
+          className="rounded-lg object-cover w-full h-[150px] md:h-[200px]"
         />
       </div>
 
       {/* Title Section */}
-      <h1 className="font-sans  text-3xl font-bold text-center text-primary mt-4 uppercase border-b-4 border-secondary pb-1">
+      <h1 className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mt-4 uppercase border-b-4  border-secondary  pb-1 hover:text-secondary transition-colors duration-300">
         Shivang is hot Af
       </h1>
 
@@ -31,7 +31,7 @@ function ProjectCard() {
         <p className="text-primary font-semibold text-lg font-source">
           Abilities:
         </p>
-        <p className="text-secondary text-sm leading-tight font-avenir">
+        <p className="text-secondary text-sm md:text-base leading-tight font-avenir">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ea
           earum aliquam qui magnam et praesentium. Eaque deserunt saepe, aliquid
           officia distinctio impedit excepturi cumque nam, eius voluptatibus,
@@ -42,7 +42,9 @@ function ProjectCard() {
       {/* Tech Section */}
       <div className="flex justify-between items-center mt-4 p-2  bg-[#D6D6D6] rounded-lg shadow-inner font-avenir">
         <p className="text-primary font-bold">Tech Stack:</p>
-        <p className="text-secondary">firebase, html, css, reactjs, nodejs</p>
+        <p className="text-secondary text-sm md:text-base">
+          firebase, html, css, reactjs, nodejs
+        </p>
       </div>
 
       {/* Links Section */}
@@ -51,7 +53,7 @@ function ProjectCard() {
           GitHub
         </a>
         <a
-          className="hover:text-primary transition-all duration-200"
+          className="hover:text-primary transition-all duration-200 cursor-pointer"
           onClick={() => setOpen(true)}
         >
           Show More

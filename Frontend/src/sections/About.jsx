@@ -44,7 +44,7 @@ export default function About() {
             backgroundImage,
           }}
         >
-          <p className="font-futura text-secondary leading-8">
+          <p className="font-futura font-semibold  text-[#A6A6A6] md:leading-6  lg:leading-8">
             👨‍💻 <span className="font-bold text-white">From Gears to Code:</span>{" "}
             Once a mechanical engineer, now a{" "}
             <span className="font-extrabold text-white">
