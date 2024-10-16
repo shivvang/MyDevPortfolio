@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 export default function FooterContent() {
   return (
-    <div className="bg-white py-8 px-6 lg:px-12 h-full flex flex-col justify-between animate-fadeIn">
+    <div className="bg-white py-8 px-6 lg:px-12 h-full flex flex-col justify-evenly ">
       <Section1 />
       <Section2 />
     </div>

@@ -77,10 +77,7 @@ const SpotlightButton = () => {
       className="relative w-full max-w-xs overflow-hidden rounded-lg bg-primary px-4 py-3  text-lg font-medium text-white border-2 border-secondary"
       onClick={handleButtonClick}
     >
-      <span
-        className=" pointer-events-none relative z-10 mix-blend-difference"
-        style={{ fontFamily: "Futura" }}
-      >
+      <span className="pointer-events-none relative z-10 mix-blend-difference font-futura">
         Explore More
       </span>
 

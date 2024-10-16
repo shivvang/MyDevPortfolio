@@ -39,7 +39,7 @@ export default function About() {
       <div className="flex flex-col md:flex-row  mt-4 break-words">
         {/* This div takes 60% width on medium and larger screens */}
         <motion.div
-          className="w-full md:w-3/5 shadow-lg p-6 border-4 border-primary"
+          className="w-full md:w-3/5 shadow-lg p-6 border-4 border-secondary"
           style={{
             backgroundImage,
           }}

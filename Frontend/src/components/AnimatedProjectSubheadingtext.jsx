@@ -44,7 +44,7 @@ const Word = ({ children, opacities, index }) => {
         style={{
           opacity: opacities[index],
         }} // Use the precomputed opacity
-        className="inline-block mr-2 text-primary"
+        className="inline-block mr-2 text-secondary"
       >
         {children}
       </motion.span>
