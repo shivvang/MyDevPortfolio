@@ -1,16 +1,12 @@
 import AnimatedProjectSubheadingtext from "../components/AnimatedProjectSubheadingtext";
 import ProjectCard from "../components/ProjectCard";
+import ProjectsHeader from "../components/ProjectsHeader ";
 
 function Projects() {
   return (
     <section className="flex flex-col p-8 gap-10">
       {/* Section Header */}
-      <div className="flex gap-2 items-center">
-        <hr className="bg-secondary w-full h-1" />
-        <h1 className="font-source text-primary text-4xl md:text-5xl lg:text-6xl">
-          Projects<span className="text-secondary">.</span>
-        </h1>
-      </div>
+      <ProjectsHeader />
 
       {/* Animated Subheading */}
       <AnimatedProjectSubheadingtext />

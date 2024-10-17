@@ -54,7 +54,7 @@ const Card = ({ id, url, setCards, cards }) => {
     <motion.img
       src={url}
       alt="Placeholder alt"
-      className="h-32 w-32 md:h-52 md:w-52 lg:h-60  lg:w-60 origin-bottom rounded-lg bg-secondary object-cover hover:cursor-grab active:cursor-grabbing"
+      className="h-44 w-44 md:h-52 md:w-52 lg:h-60  lg:w-60 origin-bottom rounded-lg border-4 border-secondary object-cover hover:cursor-grab active:cursor-grabbing"
       style={{
         gridRow: 1,
         gridColumn: 1,
@@ -63,7 +63,7 @@ const Card = ({ id, url, setCards, cards }) => {
         rotate,
         transition: "0.125s transform",
         boxShadow: isFront
-          ? "0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5)"
+          ? "0 20px 25px -5px rgb(255 255 255 / 0.5), 0 8px 10px -6px rgb(255 255 255 / 0.5)"
           : undefined,
       }}
       animate={{

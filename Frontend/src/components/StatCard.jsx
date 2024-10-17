@@ -6,7 +6,6 @@ const COLORS = ["#13ffaa", "#1e67c6", "#ce84cf", "#dd335c", "#222222"];
 
 const StatCard = ({ title, endValue, duration }) => {
   const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false); // To ensure it only animates once
   const cardRef = useRef(null);
 
   const countMotionValue = useMotionValue(0); // Motion value to track the count
@@ -25,9 +24,8 @@ const StatCard = ({ title, endValue, duration }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry.isIntersecting && !hasAnimated) {
-          animateCount();
-          setHasAnimated(true); // Ensure the count-up happens only once
+        if (entry.isIntersecting) {
+          animateCount(); // Start the animation when in view
         }
       },
       { threshold: 0.5 } // Triggers when 50% of the card is in view
@@ -42,10 +40,12 @@ const StatCard = ({ title, endValue, duration }) => {
         observer.unobserve(cardRef.current);
       }
     };
-  }, [endValue, duration, hasAnimated]);
+  }, [endValue, duration]);
 
   const animateCount = () => {
     let startValue = 0;
+    setCount(0); // Reset the displayed count
+    countMotionValue.set(0); // Reset the color animation
     const increment = endValue / (duration / 100);
 
     const timer = setInterval(() => {
@@ -79,7 +79,7 @@ const StatCard = ({ title, endValue, duration }) => {
         initial={{ scale: 0.5 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1 }}
-        style={{ color }} // Set the animated color here
+        style={{ color }} // Sets the animated color
       >
         {count}
       </motion.p>

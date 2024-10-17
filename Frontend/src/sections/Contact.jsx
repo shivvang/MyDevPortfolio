@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import EmailIcon from "../assests/envelope.png";
 
 function Contact() {
   return (
@@ -23,7 +24,7 @@ function Contact() {
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 30, opacity: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="text-xl mb-4 font-avenir"
+        className="md:text-base lg:text-xl mb-4 font-avenir"
       >
         Why let this space go to waste? Let&apos;s turn it into something
         extraordinary! <br />
@@ -44,16 +45,17 @@ function Contact() {
       </motion.p>
 
       {/* the email link with hover interaction */}
-      <motion.p
+      <motion.div
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 30, opacity: 0 }}
         transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-        className="text-xl font-source"
+        className="text-lg  md:text-xl font-source flex items-center gap-2"
       >
+        {/* Email icon placed next to the email anchor */}
+        <motion.img src={EmailIcon} alt="Email Icon" className="w-6 h-6" />
         <motion.a
           transition={{ type: "spring", stiffness: 300 }}
           whileHover={{
-            scale: 1.2,
             color: "#EAEAEA",
             textShadow: "0px 0px 8px rgb(255,255,255)",
           }}
@@ -62,7 +64,7 @@ function Contact() {
         >
           shivangramakanthariakar@gmail.com
         </motion.a>
-      </motion.p>
+      </motion.div>
     </motion.div>
   );
 }

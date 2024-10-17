@@ -10,6 +10,7 @@ import StatCard from "../components/StatCard";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AboutHeader from "../components/AboutHeader";
 
 const COLORS = ["#13ffaa", "#1e67c6", "#ce84cf", "#dd335c"];
 
@@ -29,12 +30,7 @@ export default function About() {
 
   return (
     <section className="flex flex-col p-8 gap-4">
-      <div className="flex gap-2 items-center ">
-        <h1 className="font-source text-primary text-4xl md:text-5xl lg:text-6xl">
-          About<span className="text-secondary">.</span>
-        </h1>
-        <hr className="bg-secondary w-full h-1" />
-      </div>
+      <AboutHeader />
 
       <div className="flex flex-col md:flex-row  mt-4 break-words">
         {/* This div takes 60% width on medium and larger screens */}
@@ -44,42 +40,57 @@ export default function About() {
             backgroundImage,
           }}
         >
-          <p className="font-futura font-semibold  text-[#A6A6A6] md:leading-6  lg:leading-8">
-            👨‍💻 <span className="font-bold text-white">From Gears to Code:</span>{" "}
+          <p className="font-futura font-semibold text-[#A6A6A6] leading-6 sm:leading-7 md:leading-8 lg:leading-9 text-sm sm:text-base md:text-lg lg:text-xl">
+            👨‍💻{" "}
+            <span className="font-bold text-white font-avenir">
+              From Gears to Code:
+            </span>{" "}
             Once a mechanical engineer, now a{" "}
-            <span className="font-extrabold text-white">
+            <span className="font-extrabold text-white font-avenir">
               full-stack explorer
             </span>{" "}
             navigating the digital world with a{" "}
-            <span className="font-extrabold text-white">
+            <span className="font-extrabold text-white font-avenir">
               passion for backend wizardry.
             </span>{" "}
             My curiosity knows no bounds—whether it&apos;s{" "}
-            <span className="font-bold text-white">building systems</span>,
-            diving into{" "}
-            <span className="font-bold text-white">new technologies</span>, or
-            cracking the toughest{" "}
-            <span className="font-extrabold text-white">
+            <span className="font-bold text-white font-avenir">
+              building systems
+            </span>
+            , diving into{" "}
+            <span className="font-bold text-white font-avenir">
+              new technologies
+            </span>
+            , or cracking the toughest{" "}
+            <span className="font-extrabold text-white font-avenir">
               data structure problems
             </span>{" "}
             , I&apos;m always searching for the{" "}
-            <span className="font-bold text-white">why and how of things.</span>{" "}
+            <span className="font-bold text-white font-avenir">
+              why and how of things.
+            </span>{" "}
             From studying{" "}
             <span className="font-bold text-white">CS fundamentals</span> to
             crafting solutions across domains, I&apos;m driven by the joy of{" "}
-            <span className="font-extrabold text-white">
+            <span className="font-extrabold text-white font-avenir">
               problem-solving and innovation.
             </span>{" "}
             Each line of code is a new adventure, and I&apos;m constantly
             sharpening my{" "}
-            <span className="font-bold text-white">critical thinking</span>,
-            logic, and love for learning. 😁
+            <span className="font-bold text-white font-avenir">
+              critical thinking
+            </span>
+            , logic, and love for learning. 😁
           </p>
         </motion.div>
 
         {/* This div takes 40% width on medium and larger screens */}
         <div className="w-full md:w-2/5 bg-primary p-4">
-          <h1 className="font-source text-2xl text-white" onMouseEnter={notify}>
+          <h1
+            className="font-source text-2xl   text-white"
+            onMouseEnter={notify}
+            style={{ textShadow: "2px 2px 5px rgba(128, 128, 128, 0.9)" }}
+          >
             My Skillsets
           </h1>
           <div className="mt-4">
