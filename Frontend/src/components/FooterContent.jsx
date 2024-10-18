@@ -1,23 +1,68 @@
 /* eslint-disable react/prop-types */
-
+import { useState } from "react";
 import { motion } from "framer-motion";
 import MysteryBox from "./MysteryBox";
 
 export default function FooterContent() {
+  const [resumeFound, setResumeFound] = useState(false);
+  const [timeTaken, setTimeTaken] = useState(null);
+
+  // Utility function to format time
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+
+    if (minutes > 0) {
+      return `${minutes} min ${seconds} sec`;
+    } else {
+      return `${seconds} sec`;
+    }
+  };
+
   return (
     <div className="relative bg-white py-12 px-6 lg:px-12 h-full flex flex-col justify-evenly">
       <div className="relative z-10 text-primary">
-        <Section1 />
+        <Section1 setResumeFound={setResumeFound} setTimeTaken={setTimeTaken} />
         <Section2 />
+        {/* Display the resume found message globally */}
+        {resumeFound && (
+          <div className="fixed top-4 left-4  lg:top-12 lg:left-8 bg-black text-white p-4 rounded-lg shadow-lg z-50">
+            <p className="text-sm lg:text-lg flex items-center gap-2">
+              🎉 You found the resume in {formatTime(timeTaken)}!
+              {/* Add a download link with an icon */}
+              <a
+                href="/path-to-resume.pdf" // Replace with the actual path to your resume file
+                download="Resume.pdf"
+                className="flex items-center underline text-[#FFD700] hover:text-white"
+              >
+                <span>Download Resume</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3"
+                  />
+                </svg>
+              </a>
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-const Section1 = () => {
+const Section1 = ({ setResumeFound, setTimeTaken }) => {
   return (
     <div className="mt-6 lg:mt-0">
-      <Nav />
+      <Nav setResumeFound={setResumeFound} setTimeTaken={setTimeTaken} />
     </div>
   );
 };
@@ -35,12 +80,10 @@ const Section2 = () => {
   );
 };
 
-const Nav = () => {
+const Nav = ({ setResumeFound, setTimeTaken }) => {
   return (
     <div className="flex flex-col gap-12 md:flex-row md:gap-10 lg:gap-20 justify-between items-center font-avenir text-black">
-      {/* Left Section: Coding Profiles & Quick Links Together */}
       <div className="flex flex-col md:flex-row gap-12 md:gap-20">
-        {/* My Coding Profiles */}
         <div className="flex flex-col gap-2">
           <h3 className="mb-2 uppercase text-black font-source font-bold text-lg tracking-wide">
             My Coding Profiles
@@ -55,8 +98,6 @@ const Nav = () => {
             href="https://www.naukri.com/code360/profile/41d79573-7a72-417a-8d86-f1c824bf85b5"
           />
         </div>
-
-        {/* Quick Links */}
         <div className="flex flex-col gap-2">
           <h3 className="mb-2 uppercase text-primary font-source font-bold text-lg tracking-wide">
             Quick Links
@@ -72,10 +113,12 @@ const Nav = () => {
           />
         </div>
       </div>
-
-      {/* Right Section: Mystery Box */}
       <div className="flex justify-center items-center">
-        <MysteryBox />
+        {/* Pass resumeFound and setResumeFound as props */}
+        <MysteryBox
+          setResumeFound={setResumeFound}
+          setTimeTaken={setTimeTaken}
+        />
       </div>
     </div>
   );
@@ -85,8 +128,8 @@ const NavLink = ({ label, href }) => {
   return (
     <motion.div
       className="flex items-center relative"
-      whileHover={{ scale: 1.05 }} // Scale on hover
-      transition={{ type: "spring", stiffness: 300 }} // Smooth transition
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300 }}
     >
       <a
         href={href}
@@ -96,7 +139,7 @@ const NavLink = ({ label, href }) => {
       >
         {label}
       </a>
-      <div className="absolute left-0 -bottom-1 w-full h-1 bg-gradient-to-r from-secondary to-transparent"></div>{" "}
+      <div className="absolute left-0 -bottom-1 w-full h-1 bg-gradient-to-r from-secondary to-transparent"></div>
     </motion.div>
   );
 };

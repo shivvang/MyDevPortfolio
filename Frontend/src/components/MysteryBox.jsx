@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const secretMessages = [
@@ -12,15 +13,32 @@ const secretMessages = [
   "Did you know? Over 70% of the world's software is written in C and C++.",
   "In the world of 0s and 1s, creativity is your greatest superpower.",
   "Just like code, every challenge has a solution... you just have to find the right developer.",
+  "You've discovered something special! Here's the Download Link to the Resume.",
 ];
 
-export default function MysteryBox() {
+export default function MysteryBox({ setResumeFound, setTimeTaken }) {
   const [showMessage, setShowMessage] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
+  const [startTime, setStartTime] = useState(Date.now()); // Start time
+
+  useEffect(() => {
+    setStartTime(Date.now()); // Initialize the timer on load
+  }, []);
 
   const revealMessage = () => {
+    const randomIndex = Math.floor(Math.random() * secretMessages.length);
+    setMessageIndex(randomIndex);
     setShowMessage(true);
-    setMessageIndex(Math.floor(Math.random() * secretMessages.length));
+
+    // If the resume is found, stop the timer
+    if (
+      secretMessages[randomIndex]
+        .toLowerCase()
+        .includes("download link to the resume")
+    ) {
+      setResumeFound(true); // Notify parent component
+      setTimeTaken((Date.now() - startTime) / 1000); // Send time taken to parent
+    }
   };
 
   const resetBox = () => {
@@ -30,28 +48,24 @@ export default function MysteryBox() {
   return (
     <motion.div
       onClick={revealMessage}
-      onMouseLeave={resetBox} // Resets to initial state on mouse leave
-      className="relative w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[250px] lg:h-[250px] bg-primary flex items-center justify-center cursor-pointer rounded-lg shadow-lg"
-      whileHover={{ scale: 1.1 }} // Subtle hover effect
-      whileTap={{ scale: 0.95 }} // Slight shrink on click
-      initial={{ opacity: 0.8 }}
-      animate={{ opacity: 1 }}
+      onMouseLeave={resetBox}
+      className="relative w-[90vw] h-[50vw] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] bg-primary flex items-center justify-center cursor-pointer rounded-lg shadow-lg"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
     >
-      {/* Outer mysterious box */}
       <div className="absolute inset-0 bg-primary blur-[4px] rounded-lg"></div>
 
-      {/* Inner clickable content */}
       <div className="relative z-10 text-white text-center">
         {!showMessage ? (
           <motion.div
-            className="text-lg sm:text-xl lg:text-2xl font-futura text-tertiary tracking-wide"
+            className="text-base sm:text-lg md:text-xl font-futura text-tertiary tracking-wide p-4"
             initial={{ opacity: 0.6, y: 0 }}
-            animate={{ opacity: 1, y: [-10, 0] }} // Spring effect
+            animate={{ opacity: 1, y: [-10, 0] }}
             transition={{
               duration: 0.6,
-              ease: [0.42, 0, 0.58, 1], // Bounce effect timing function (spring-like)
-              repeat: Infinity, // Keep bouncing indefinitely
-              repeatType: "reverse", // Reverses the animation for smooth bounce
+              ease: [0.42, 0, 0.58, 1],
+              repeat: Infinity,
+              repeatType: "reverse",
             }}
           >
             What lies inside?
@@ -59,7 +73,13 @@ export default function MysteryBox() {
         ) : (
           <motion.div
             key={messageIndex}
-            className="text-base sm:text-lg lg:text-xl font-source text-white p-4"
+            className={`text-base sm:text-lg md:text-xl font-source p-4 ${
+              secretMessages[messageIndex]
+                .toLowerCase()
+                .includes("download link to the resume")
+                ? "text-[#FFD700]" // Apply gold color for the special message
+                : "text-white"
+            }`}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
