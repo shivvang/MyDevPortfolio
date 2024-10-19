@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 /* eslint-disable react/prop-types */
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   // Listen for scroll to update opacity
   useEffect(() => {
@@ -11,12 +12,36 @@ function Header() {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Detect when footer is in view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsFooterVisible(true); // Footer is visible
+        } else {
+          setIsFooterVisible(false); // Footer is not visible
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const footerElement = document.getElementById("footer");
+    if (footerElement) {
+      observer.observe(footerElement);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (footerElement) observer.unobserve(footerElement);
+    };
   }, []);
   return (
     <div
       className={`fixed top-4 w-full z-50 transition-opacity duration-300 ${
-        isScrolled ? "opacity-50" : "opacity-100"
+        isFooterVisible
+          ? "opacity-0"
+          : isScrolled
+          ? "opacity-50"
+          : "opacity-100"
       } hover:opacity-100`}
     >
       <SlideTabs />

@@ -3,16 +3,21 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const secretMessages = [
-  "The stars shine brighter when you close your eyes.",
-  "Hidden paths often lead to the best adventures.",
-  "What lies beneath the surface? Maybe the perfect candidate for your team.",
-  "Not everything is as it seems... but my resume is as real as it gets.",
-  "Shadows whisper secrets that light can't reveal... like the perfect opportunity to bring someone on board.",
-  "In programming, the first bug was a real bug—a moth stuck in a computer in 1947.",
-  "Fun fact: The word 'algorithm' comes from the name of a Persian mathematician, Al-Khwarizmi.",
-  "Did you know? Over 70% of the world's software is written in C and C++.",
-  "In the world of 0s and 1s, creativity is your greatest superpower.",
-  "Just like code, every challenge has a solution... you just have to find the right developer.",
+  // Teasing messages about finding the resume
+  "The more you tap, the closer you get... to the hidden treasure (hint: it's my resume).",
+  "One more tap, and you might just unlock something important... like a resume!",
+
+  // MERN stack facts
+  "Did you know? MERN powers some of the biggest web apps today. I’ve mastered it, ready to build yours?",
+  "React components are like LEGO blocks for developers. I'm the one who can build anything from them.",
+  "Node.js makes scaling apps easy. Let me scale your next big project.",
+
+  // Indirect "hire me" messages
+  "The shortest path between you and the perfect developer? You're tapping on it.",
+  "Like finding the right algorithm, finding the right developer makes all the difference. Is it me?",
+  "You don't need to solve this hiring problem—I'm right here, ready to be your solution.",
+
+  // Final "resume found" message
   "You've discovered something special! Here's the Download Link to the Resume.",
 ];
 
