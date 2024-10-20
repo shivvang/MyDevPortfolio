@@ -29,7 +29,7 @@ export default function About() {
   }, []);
 
   return (
-    <section className="flex flex-col p-8 gap-4">
+    <section id="about" className="flex flex-col p-8 gap-4">
       <AboutHeader />
 
       <div className="flex flex-col md:flex-row  mt-4 break-words">

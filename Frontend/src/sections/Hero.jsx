@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section id="hero" className="relative h-screen overflow-hidden">
       <div className="flex w-full h-full">
         <div
           className={`w-1/2 h-full transition-colors duration-500 ${

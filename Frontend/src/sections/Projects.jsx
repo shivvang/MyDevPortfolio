@@ -4,7 +4,7 @@ import ProjectsHeader from "../components/ProjectsHeader ";
 
 function Projects() {
   return (
-    <section className="flex flex-col p-8 gap-10">
+    <section id="projects" className="flex flex-col p-8 gap-10">
       {/* Section Header */}
       <ProjectsHeader />
 

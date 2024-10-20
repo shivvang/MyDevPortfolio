@@ -68,17 +68,57 @@ function SlideTabs() {
       }}
       className="relative mx-auto flex w-fit rounded-full border-2 bg-tertiary border-secondary p-1"
     >
-      <Tab setPosition={setPosition}>Home</Tab>
-      <Tab setPosition={setPosition}>Project</Tab>
-      <Tab setPosition={setPosition}>About</Tab>
-      <Tab setPosition={setPosition}>Contact</Tab>
+      <Tab setPosition={setPosition} scrollToId="hero">
+        Home
+      </Tab>
+      <Tab setPosition={setPosition} scrollToId="projects">
+        Project
+      </Tab>
+      <Tab setPosition={setPosition} scrollToId="about">
+        About
+      </Tab>
+      <Tab setPosition={setPosition} scrollToId="contact">
+        Contact
+      </Tab>
       <Cursor position={position} />
     </ul>
   );
 }
 
-function Tab({ children, setPosition }) {
+function Tab({ children, setPosition, scrollToId }) {
   const ref = useRef(null);
+
+  const smoothScroll = (targetElement, duration = 1000) => {
+    const startPosition = window.pageYOffset;
+    const targetPosition =
+      targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    const easeInOutQuad = (time, start, change, duration) => {
+      time /= duration / 2;
+      if (time < 1) return (change / 2) * time * time + start;
+      time--;
+      return (-change / 2) * (time * (time - 2) - 1) + start;
+    };
+
+    const animationScroll = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animationScroll);
+    };
+
+    requestAnimationFrame(animationScroll);
+  };
+
+  const handleClick = () => {
+    const section = document.getElementById(scrollToId);
+    if (section) {
+      smoothScroll(section, 1500);
+    }
+  };
 
   return (
     <li
@@ -92,6 +132,7 @@ function Tab({ children, setPosition }) {
           left: ref.current.offsetLeft,
         });
       }}
+      onClick={handleClick}
       className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase font-bold font-futura text-primary transition-all duration-300 hover:text-white md:px-5 md:py-3 md:text-base"
     >
       {children}

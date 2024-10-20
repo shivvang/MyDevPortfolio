@@ -4,6 +4,7 @@ import EmailIcon from "../assests/envelope.png";
 function Contact() {
   return (
     <motion.div
+      id="contact"
       whileInView={{ opacity: 1 }} // Animation triggers when in view
       initial={{ opacity: 0 }} // Initially hidden
       transition={{ duration: 1 }}
