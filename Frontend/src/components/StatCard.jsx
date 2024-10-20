@@ -93,7 +93,7 @@ const StatsSection = () => {
       <h2 className="text-4xl font-sans font-bold mb-8">Code Metrics</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
         <StatCard title="LeetCode" endValue={264} duration={2000} />
-        <StatCard title="GeeksforGeeks" endValue={95} duration={2000} />
+        <StatCard title="GeeksforGeeks" endValue={96} duration={2000} />
         <StatCard title="Coding Ninja" endValue={24} duration={2000} />
       </div>
     </div>
