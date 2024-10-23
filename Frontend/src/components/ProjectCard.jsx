@@ -1,229 +1,72 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import useMeasure from "react-use-measure";
-import {
-  useDragControls,
-  useMotionValue,
-  useAnimate,
-  motion,
-} from "framer-motion";
 
-function ProjectCard() {
-  const [open, setOpen] = useState(false);
+function ProjectCard({
+  title,
+  imageUrl,
+  abilities,
+  techStack,
+  githubLink,
+  LiveLink,
+}) {
   return (
-    <div className="relative flex flex-col bg-tertiary p-4 rounded-lg shadow-xl hover:shadow-2xl border-4 border-primary transform hover:-translate-y-1 transition-all duration-300 ease-out">
+    <div className="relative flex flex-col bg-tertiary p-4 rounded-xl shadow-lg hover:shadow-2xl border-8 border-gradient-primary-to-secondary transform hover:-translate-y-1 transition-all duration-300 ease-out hover:scale-105">
       {/* Image Section */}
       <div className="bg-gradient-to-b from-secondary to-primary rounded-lg p-2 hover:opacity-90 transition-opacity duration-300">
         <img
-          src="https://evokewellness.com/wp-content/uploads/2022/08/How-Did-Robert-Downey-Jr.-Get-Clean.jpg"
-          alt="ProjectImage"
-          className="rounded-lg object-cover w-full h-[150px] md:h-[200px]"
+          src={imageUrl}
+          alt="Project Image"
+          className="rounded-lg object-cover w-full h-[150px] md:h-[200px] border-2 border-white"
         />
       </div>
 
       {/* Title Section */}
-      <h1 className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mt-4 uppercase border-b-4  border-secondary  pb-1 hover:text-secondary transition-colors duration-300">
-        Shivang is hot Af
+      <h1 className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white mt-4 bg-gradient-to-r from-secondary to-primary py-2 px-4 rounded-md shadow-lg hover:text-white transition-colors duration-300">
+        {title}
       </h1>
 
-      {/* Text/Abilities Section */}
+      {/* Abilities Section */}
       <div className="mt-4">
         <p className="text-primary font-semibold text-lg font-source">
           Abilities:
         </p>
-        <p className="text-secondary text-sm md:text-base leading-tight font-avenir">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ea
-          earum aliquam qui magnam et praesentium. Eaque deserunt saepe, aliquid
-          officia distinctio impedit excepturi cumque nam, eius voluptatibus,
-          beatae nesciunt.
+        <p className="text-secondary text-sm md:text-base lg:text-lg leading-tight font-avenir">
+          {Array.isArray(abilities) && abilities.length > 0 ? (
+            abilities.map((ability, index) => (
+              <span key={index} className="block my-1">
+                {ability}
+              </span>
+            ))
+          ) : (
+            <span>No abilities available</span>
+          )}
         </p>
       </div>
 
       {/* Tech Section */}
-      <div className="flex justify-between items-center mt-4 p-2  bg-[#D6D6D6] rounded-lg shadow-inner font-avenir">
+      <div className="flex justify-between items-center mt-4 p-2 bg-gradient-to-r from-tertiary to-white rounded-lg shadow-inner font-avenir">
         <p className="text-primary font-bold">Tech Stack:</p>
         <p className="text-secondary text-sm md:text-base">
-          firebase, html, css, reactjs, nodejs
+          {techStack && techStack.length > 0 ? techStack.join(", ") : "N/A"}
         </p>
       </div>
 
       {/* Links Section */}
       <div className="flex justify-between mt-6 text-secondary font-bold font-futura">
-        <a href="#" className="hover:text-primary transition-all duration-200">
+        <a
+          href={githubLink}
+          className="hover:text-primary transition-all duration-200 hover:scale-110"
+        >
           GitHub
         </a>
         <a
-          className="hover:text-primary transition-all duration-200 cursor-pointer"
-          onClick={() => setOpen(true)}
+          href={LiveLink}
+          className="hover:text-primary transition-all duration-200 cursor-pointer hover:scale-110"
         >
-          Show More
+          Live Link
         </a>
-        <DragCloseDrawer open={open} setOpen={setOpen}>
-          <div className="mx-auto max-w-2xl space-y-4 text-neutral-400">
-            <h2 className="text-4xl font-bold text-tertiary">
-              Drag the handle downwards to close it
-            </h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
-              laboriosam quos deleniti veniam est culpa quis nihil enim suscipit
-              nulla aliquid iure optio quaerat deserunt, molestias quasi facere
-              aut quidem reprehenderit maiores.
-            </p>
-            <p>
-              Laudantium corrupti neque rerum labore tempore sapiente. Quos,
-              nobis dolores. Esse fuga, cupiditate rerum soluta magni numquam
-              nemo aliquid voluptate similique deserunt!
-            </p>
-            <p>
-              Rerum inventore provident laboriosam quo facilis nisi voluptatem
-              quam maxime pariatur. Velit reiciendis quasi sit magni numquam
-              quos itaque ratione, fugit adipisci atque est, tenetur officiis
-              explicabo id molestiae aperiam? Expedita quidem inventore magni?
-              Doloremque architecto mollitia, dicta, fugit minima velit
-              explicabo sapiente beatae fugiat accusamus voluptatum, error
-              voluptatem ab asperiores quo modi possimus.
-            </p>
-            <p>
-              Sit laborum molestias ex quisquam molestiae cum fugiat
-              praesentium! Consequatur excepturi quod nemo harum laudantium
-              accusantium nisi odio?
-            </p>
-            <p>
-              Deleniti, animi maiores officiis quos eaque neque voluptas omnis
-              quia error a dolores, pariatur ad obcaecati, vitae nisi
-              perspiciatis fugiat sapiente accusantium. Magnam, a nihil soluta
-              eos vero illo ab sequi, dolores culpa, quia hic?
-            </p>
-            <p>
-              Eos in saepe dignissimos tempore. Laudantium cumque eius, et
-              distinctio illum magnam molestiae doloribus. Fugiat voluptatum
-              necessitatibus vero eligendi quae, similique non debitis qui
-              veniam praesentium rerum labore libero architecto tempore nesciunt
-              est atque animi voluptatibus. Aliquam repellendus provident
-              tempora sequi officia sint voluptates eaque minima suscipit, cum
-              maiores quos possimus. Vero ex porro asperiores voluptas
-              voluptatibus?
-            </p>
-            <p>
-              Debitis eos aut ullam odit fuga. Numquam deleniti libero quas
-              sunt? Exercitationem earum odio aliquam necessitatibus est
-              accusamus consequuntur nisi natus dolore libero voluptatibus odit
-              doloribus laudantium iure, dicta placeat molestias porro quasi
-              amet? Sint, reiciendis tenetur distinctio eaque delectus, maiores,
-              nihil voluptas dolorem necessitatibus consequatur aliquid?
-            </p>
-            <p>
-              Sunt ex, cum culpa vel odio dicta expedita omnis amet debitis
-              inventore necessitatibus quaerat est molestias delectus. Dolorem,
-              eius? Quae, itaque ipsa incidunt nobis repellendus, sunt dolorum
-              aliquam ad culpa repudiandae impedit omnis, expedita illum
-              voluptas delectus similique ducimus saepe pariatur. Molestias
-              similique quam dolore provident doloremque maiores autem ab
-              blanditiis voluptatum dignissimos culpa sed nesciunt laboriosam,
-              in dicta consectetur.
-            </p>
-            <p>
-              Voluptates ea, aspernatur possimus, iusto temporibus non
-              laudantium neque molestias rem tempore eligendi earum nisi dolorum
-              asperiores at rerum!
-            </p>
-            <p>
-              Eaque totam error quia, ut eius perspiciatis unde velit temporibus
-              mollitia. Aperiam ad tempora aliquam est molestias commodi
-              cupiditate quos impedit nostrum accusantium quo fugit eveniet
-              temporibus quam cumque autem porro, id ut debitis itaque et nemo
-              exercitationem voluptatibus? Aspernatur corrupti quas iusto
-              dolores nemo pariatur debitis quae dolorem! Nemo, eius? Dolorem
-              quam nemo magnam ratione deserunt aperiam. Voluptatum ipsa,
-              molestias aspernatur quas distinctio numquam qui laboriosam id ab
-              totam commodi laborum tempora error natus vitae eligendi
-              reiciendis maiores ex illo? Tempore at animi earum vitae enim
-              sunt, dignissimos, mollitia corrupti officia obcaecati error iure
-              vero repudiandae nihil magni molestias quibusdam dolorem aperiam
-              modi. Harum, fugit.
-            </p>
-          </div>
-        </DragCloseDrawer>
       </div>
     </div>
   );
 }
-
-const DragCloseDrawer = ({ open, setOpen, children }) => {
-  const [scope, animate] = useAnimate();
-  const [drawerRef, { height }] = useMeasure();
-
-  const y = useMotionValue(0);
-  const controls = useDragControls();
-
-  const handleClose = async () => {
-    animate(scope.current, {
-      opacity: [1, 0],
-    });
-
-    const yStart = typeof y.get() === "number" ? y.get() : 0;
-
-    await animate("#drawer", {
-      y: [yStart, height],
-    });
-
-    setOpen(false);
-  };
-
-  return (
-    <>
-      {open && (
-        <motion.div
-          ref={scope}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          onClick={handleClose}
-          className="fixed inset-0 z-50 bg-neutral-950/70"
-        >
-          <motion.div
-            id="drawer"
-            ref={drawerRef}
-            onClick={(e) => e.stopPropagation()}
-            initial={{ y: "100%" }}
-            animate={{ y: "0%" }}
-            transition={{
-              ease: "easeInOut",
-            }}
-            className="absolute bottom-0 h-[75vh] w-full overflow-hidden rounded-t-3xl bg-neutral-900"
-            style={{ y }}
-            drag="y"
-            dragControls={controls}
-            onDragEnd={() => {
-              if (y.get() >= 100) {
-                handleClose();
-              }
-            }}
-            dragListener={false}
-            dragConstraints={{
-              top: 0,
-              bottom: 0,
-            }}
-            dragElastic={{
-              top: 0,
-              bottom: 0.5,
-            }}
-          >
-            <div className="absolute left-0 right-0 top-0 z-10 flex justify-center bg-neutral-900 p-4">
-              <button
-                onPointerDown={(e) => {
-                  controls.start(e);
-                }}
-                className="h-2 w-14 cursor-grab touch-none rounded-full bg-neutral-700 active:cursor-grabbing"
-              ></button>
-            </div>
-            <div className="relative z-0 h-full overflow-y-scroll p-4 pt-12">
-              {children}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </>
-  );
-};
 
 export default ProjectCard;
