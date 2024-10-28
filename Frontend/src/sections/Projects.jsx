@@ -2,9 +2,13 @@ import AnimatedProjectSubheadingtext from "../components/AnimatedProjectSubheadi
 import ProjectCard from "../components/ProjectCard";
 import ProjectsHeader from "../components/ProjectsHeader ";
 
+import DevPortfolioCoverImage from "../assests/devPortfolioCoverImage.png";
+import RealEstateCoverImage from "../assests/RealEstateCoverImage.png";
+import ChatAppCoverImage from "../assests/ChatAppCoverImage.png";
+
 function Projects() {
   return (
-    <section id="projects" className="flex flex-col p-8 gap-10">
+    <section id="projects" className="flex flex-col p-8 gap-10 my-4">
       {/* Section Header */}
       <ProjectsHeader />
 
@@ -16,15 +20,11 @@ function Projects() {
         <div className="transform hover:scale-105 transition-all duration-300 ease-in-out rotate-1">
           <ProjectCard
             title="Real Estate MarketPlace"
-            imageUrl="https://example.com/project-image.jpg"
-            abilities={[
-              "Advanced Search",
-              "Recent Properties",
-              "Commenting System",
-              "Property Management",
-            ]}
+            imageUrl={RealEstateCoverImage}
+            abilities={["Insight Scan ", "Trail Tracker", "Echo Mark"]}
             techStack={[
               "React",
+              "TailwindCss",
               "Node.js",
               "MongoDb",
               "Express.js",
@@ -37,42 +37,39 @@ function Projects() {
         </div>
         <div className="transform hover:scale-105 transition-all duration-300 ease-in-out rotate-2">
           <ProjectCard
-            title="My Awesome Project"
-            imageUrl="https://example.com/project-image.jpg"
-            abilities="Fast, Scalable, Secure"
+            title="Connectify"
+            imageUrl={ChatAppCoverImage}
+            abilities={[
+              "Instant Sync",
+              "Load Surge",
+              "Media Burst",
+              "Secure Shield",
+            ]}
             description="This project is about building an awesome web app with React."
-            techStack={["React", "Node.js", "Firebase"]}
-            githubLink="https://github.com/my-awesome-project"
+            techStack={[
+              "React",
+              "ShadCn",
+              "Zustand",
+              "Node.js",
+              "Express.js",
+              "Firebase",
+              "Socket.Io",
+              "MongoDb",
+              "TailwindCss",
+            ]}
+            githubLink="https://github.com/shivvang/chat_app_but_better"
+            LiveLink="https://github.com/shivvang/chat_app_but_better"
           />
         </div>
         <div className="transform hover:scale-105 transition-all duration-300 ease-in-out">
           <ProjectCard
-            title="My Awesome Project"
-            imageUrl="https://example.com/project-image.jpg"
-            abilities="Fast, Scalable, Secure"
+            title="DevShowcase"
+            imageUrl={DevPortfolioCoverImage}
+            abilities={["Ghost Trail", "Aura Flicker", "Spectral Shift"]}
             description="This project is about building an awesome web app with React."
-            techStack={["React", "Node.js", "Firebase"]}
-            githubLink="https://github.com/my-awesome-project"
-          />
-        </div>
-        <div className="transform hover:scale-105 transition-all duration-300 ease-in-out -rotate-1">
-          <ProjectCard
-            title="My Awesome Project"
-            imageUrl="https://example.com/project-image.jpg"
-            abilities="Fast, Scalable, Secure"
-            description="This project is about building an awesome web app with React."
-            techStack={["React", "Node.js", "Firebase"]}
-            githubLink="https://github.com/my-awesome-project"
-          />
-        </div>
-        <div className="transform hover:scale-105 transition-all duration-300 ease-in-out rotate-1">
-          <ProjectCard
-            title="My Awesome Project"
-            imageUrl="https://example.com/project-image.jpg"
-            abilities="Fast, Scalable, Secure"
-            description="This project is about building an awesome web app with React."
-            techStack={["React", "Node.js", "Firebase"]}
-            githubLink="https://github.com/my-awesome-project"
+            techStack={["React", "TailwindCss", "FramerMotion"]}
+            githubLink="https://github.com/shivvang/MyDevPortfolio"
+            LiveLink="https://github.com/shivvang/MyDevPortfolio"
           />
         </div>
       </div>
