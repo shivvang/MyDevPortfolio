@@ -74,14 +74,18 @@ function ProjectCard({
         >
           GitHub
         </a>
-        <a
-          href={LiveLink}
-          className="hover:text-primary transition-transform duration-200 hover:scale-110"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Live Link
-        </a>
+        {LiveLink ? (
+  <a
+    href={LiveLink}
+    className="hover:text-primary transition-transform duration-200 hover:scale-110"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Live Link
+  </a>
+) : (
+  <span className="text-gray-400">Live Link Unavailable</span>
+)}
       </div>
     </div>
   );

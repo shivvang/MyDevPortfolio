@@ -31,7 +31,7 @@ export default function FooterContent() {
               🎉 You found the resume in {formatTime(timeTaken)}!
               {/* Add a download link with an icon */}
               <a
-                href="/path-to-resume.pdf" // Replace with the actual path to your resume file
+                href="https://asset.cloudinary.com/do5cnzpgw/44046766b3f26fd65faef6545ba160b6" 
                 download="Resume.pdf"
                 className="flex items-center underline text-[#FFD700] hover:text-white"
               >

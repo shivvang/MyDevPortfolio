@@ -32,7 +32,6 @@ function Projects() {
               "Firebase",
             ]}
             githubLink="https://github.com/shivvang/Real_estate_marketplace"
-            LiveLink="https://github.com/shivvang/Real_estate_marketplace"
           />
         </div>
         <div className="transform hover:scale-105 transition-all duration-300 ease-in-out rotate-2">
@@ -58,7 +57,7 @@ function Projects() {
               "TailwindCss",
             ]}
             githubLink="https://github.com/shivvang/chat_app_but_better"
-            LiveLink="https://github.com/shivvang/chat_app_but_better"
+            
           />
         </div>
         <div className="transform hover:scale-105 transition-all duration-300 ease-in-out">
@@ -69,7 +68,7 @@ function Projects() {
             description="This project is about building an awesome web app with React."
             techStack={["React", "TailwindCss", "FramerMotion"]}
             githubLink="https://github.com/shivvang/MyDevPortfolio"
-            LiveLink="https://github.com/shivvang/MyDevPortfolio"
+            LiveLink="https://my-dev-portfolio-tau.vercel.app/"
           />
         </div>
       </div>
