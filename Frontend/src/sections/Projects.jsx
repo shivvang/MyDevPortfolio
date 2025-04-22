@@ -5,6 +5,7 @@ import ProjectsHeader from "../components/ProjectsHeader ";
 import DevPortfolioCoverImage from "../assests/devPortfolioCoverImage.png";
 import RealEstateCoverImage from "../assests/RealEstateCoverImage.png";
 import ChatAppCoverImage from "../assests/ChatAppCoverImage.png";
+import ShopSphereCoverImage from "../assests/ShopSphereCoverImage.png"
 
 function Projects() {
   return (
@@ -69,6 +70,25 @@ function Projects() {
             techStack={["React", "TailwindCss", "FramerMotion"]}
             githubLink="https://github.com/shivvang/MyDevPortfolio"
             LiveLink="https://my-dev-portfolio-tau.vercel.app/"
+          />
+        </div>
+        <div className="transform hover:scale-105 transition-all duration-300 ease-in-out">
+          <ProjectCard
+            title="Shop Sphere"
+            imageUrl={ShopSphereCoverImage}
+            abilities={["Phantom Relay", "Echo Drift", "Void Surge","Spectral Vault","Iron Veil"]}
+            techStack={[
+              "React",
+              "Node.js",
+              "MongoDb",
+              "Redis",
+              "RabbitMq",
+              "bullMq",
+              "Grpc",
+              "Socket",
+              "AWS S3"
+            ]}
+            githubLink="https://github.com/shivvang/ShopSphere"
           />
         </div>
       </div>

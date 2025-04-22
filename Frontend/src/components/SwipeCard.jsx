@@ -93,6 +93,12 @@ import Sql from "../assests/Sql.jpeg";
 import C from "../assests/C-transformed.png";
 import ReactRedux from "../assests/ReactRedux.jpg";
 import Firebase from "../assests/firebase.jpg";
+import RabbitMq from "../assests/RabbitMQ.png"
+import BullMq from "../assests/BullMq.png"
+import Grpc from "../assests/grpc.png";
+import Aws from "../assests/Aws.png";
+import Redis from "../assests/Redis.png";
+import SocketIo from "../assests/SocketIO.png"
 
 const cardData = [
   {
@@ -143,4 +149,25 @@ const cardData = [
     id: 12,
     url: CPlusPlus,
   },
+  {
+    id:13,
+    url:RabbitMq
+  },{
+    id:14,
+    url:BullMq
+  },{
+    id:15,
+    url:Grpc,
+  },{
+    id:16,
+    url:Aws,
+  },
+  {
+    id:17,
+    url:Redis
+  },
+  {
+    id:18,
+    url:SocketIo
+  }
 ];
